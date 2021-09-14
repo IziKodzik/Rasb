@@ -1,6 +1,6 @@
 from datetime import datetime
 from threading import Thread
-from gpiozero import LED, Pin, Button
+from gpiozero import LED, Pin, Button, DigitalInputDevice
 from time import sleep
 
 
@@ -23,9 +23,10 @@ def blink_led():
 
 def raspberry_program():
     thread = Thread(target=blink_led).start()
+
     button = Button(2)
     while True:
-        if button.is_active:
+        if button.is_held():
             print(69)
         sleep(1)
 
