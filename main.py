@@ -16,15 +16,14 @@ def raspberry_program():
     led = LED(14)
     button = Button(2)
     while True:
-        button.wait_for_active()
-        print('Pressed')
+        if button.is_active:
+            print('I am alive.')
         led.on()
         sleep(1)
         led.off()
-        sleep(1)
+        sleep(0.25)
 
 
 if __name__ == '__main__':
     note_boot()
     raspberry_program()
-
