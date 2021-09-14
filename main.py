@@ -33,7 +33,6 @@ def raspberry_program():
         button.wait_for_active()
         print(random.randrange(2137))
         button.wait_for_inactive()
-        print(random.randrange(2137))
 
 
 if __name__ == '__main__':
