@@ -30,10 +30,7 @@ def raspberry_program():
     button.hold_time = 1
     last_button_state = button.is_active
     while True:
-
-        if not last_button_state and button.is_active:
-            print(random.randrange(2137))
-        last_button_state = button.is_active
+        print(button.is_active)
 
 if __name__ == '__main__':
     note_boot()
