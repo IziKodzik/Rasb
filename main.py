@@ -28,8 +28,9 @@ def raspberry_program():
 
     button = Button(2)
     button.hold_time = 1
-    button.wait_for_active()
-    print(random.randrange(2000))
+    while True:
+        button.wait_for_active()
+        print(random.randrange(2000))
 
 if __name__ == '__main__':
     note_boot()
