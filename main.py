@@ -31,8 +31,6 @@ def raspberry_program():
             print(69)
         sleep(1)
 
-    thread._stop()
-
 
 if __name__ == '__main__':
     note_boot()
