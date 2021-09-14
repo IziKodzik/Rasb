@@ -33,8 +33,7 @@ def raspberry_program():
     while True:
         if button.is_active and first < 0:
             first = time.time()
-        print(first)
-        print(first - time.time())
+        print(time.time() - first)
 
 
 if __name__ == '__main__':
