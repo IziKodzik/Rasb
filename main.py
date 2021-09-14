@@ -32,7 +32,7 @@ def raspberry_program():
     while True:
         if (not last_button_state) and button.is_active:
             print(button.is_active)
-
+        last_button_state = button.is_active
 
 if __name__ == '__main__':
     note_boot()
