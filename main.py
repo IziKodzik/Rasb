@@ -33,7 +33,7 @@ def raspberry_program():
     while True:
         if button.is_active and first < 0:
             first = time.time()
-            print('chan')
+            print(first-time.time())
         else:
             first = -1
         if time.time() - first > 1:
