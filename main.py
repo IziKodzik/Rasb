@@ -21,15 +21,13 @@ def blink_led():
         led.on()
         sleep(1)
         led.off()
-        sleep(0.25)
+        sleep(0.5)
 
 
 def raspberry_program():
     thread = Thread(target=blink_led).start()
 
     button = Button(2)
-    button.hold_time = 1
-    last_button_state = button.is_pressed
     while True:
         button.wait_for_active()
         os.system('cd /home/pi/Desktop/work/raspb-controller ; git pull')
