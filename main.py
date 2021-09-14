@@ -31,13 +31,12 @@ def raspberry_program():
     last_button_state = button.is_active
     first = -1
     while True:
-        if button.is_active and first < 0:
+        if not last_button_state and button.is_active and first < 0:
             first = time.time()*1000
+            print(first)
         else:
             first = -1
-        if first >= 0 and time.time()*1000 - first > 1:
-            print("co jest kurwa?")
-            first = -1
+        last_button_state = button.is_active
 
 
 
