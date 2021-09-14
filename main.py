@@ -31,14 +31,10 @@ def raspberry_program():
     last_button_state = button.is_active
     first = -1
     while True:
-        print(first)
         if button.is_active and first < 0:
             first = time.time()
-        if button.is_active and not last_button_state and time.time()-first >= 1:
-            print(random.randrange(10))
-        if not button.is_active:
-            first = -1
-        last_button_state = button.is_active
+        print(first)
+        print(first - time.time())
 
 
 if __name__ == '__main__':
