@@ -32,12 +32,12 @@ def raspberry_program():
     first = -1
     while True:
         if button.is_active and first < 0:
-            first = time.time()
-            print(first-time.time())
+            first = time.time()*1000
         else:
             first = -1
-        if time.time() - first > 1:
-            button.hold_time = 2
+        if time.time()*1000 - first > 1:
+            print("co jest kurwa?")
+            first = -1
 
 
 
