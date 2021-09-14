@@ -30,9 +30,9 @@ def raspberry_program():
     button.hold_time = 1
     last_button_state = button.is_pressed
     while True:
-        button.wait_for_active()
-        print(random.randrange(2137))
         button.wait_for_inactive()
+        print(random.randrange(2137))
+        button.wait_for_active()
 
 
 if __name__ == '__main__':
