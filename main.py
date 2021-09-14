@@ -35,7 +35,8 @@ def raspberry_program():
             first = time.time()
         else:
             first = -1
-        print(time.time() - first)
+        if time.time() - first > 1:
+            print(time.time() - first)
 
 
 
