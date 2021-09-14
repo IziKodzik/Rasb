@@ -22,11 +22,14 @@ def blink_led():
 
 
 def raspberry_program():
-    Thread(target=blink_led).start()
+    thread = Thread(target=blink_led).start()
     button = Button(2)
     while True:
-        print(69)
+        if button.is_active:
+            print(69)
         sleep(1)
+
+    thread._stop()
 
 
 if __name__ == '__main__':
