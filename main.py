@@ -3,6 +3,7 @@ from datetime import datetime
 from threading import Thread
 from gpiozero import LED, Pin, Button, DigitalInputDevice
 from time import sleep
+import os
 import time
 
 
@@ -31,7 +32,7 @@ def raspberry_program():
     last_button_state = button.is_pressed
     while True:
         button.wait_for_inactive()
-        print(random.randrange(2137))
+        os.system('cd /home/pi/Desktop/work/raspb-controller ; git pull')
         button.wait_for_active()
 
 
