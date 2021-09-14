@@ -1,12 +1,7 @@
 from datetime import datetime
 
 if __name__ == '__main__':
-    stre = f"/home/pi/Desktop/boots/boot{datetime.now()}"
-    print(stre)
-    stre = stre.replace('-', '_')
-    stre = stre.replace('.', '_')
-    stre = stre.replace(':', '_')
-    stre = stre.replace(" ", "")
-    print(stre)
-    f = open(stre, "x")
+    boot_file_name = f"/home/pi/Desktop/boots/boots.txt"
+    f = open(boot_file_name, "a")
+    f.write(f"{datetime.now()}")
     f.close()
