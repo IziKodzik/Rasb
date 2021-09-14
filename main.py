@@ -1,7 +1,9 @@
+import random
 from datetime import datetime
 from threading import Thread
 from gpiozero import LED, Pin, Button, DigitalInputDevice
 from time import sleep
+import time
 
 
 def note_boot():
@@ -27,9 +29,14 @@ def raspberry_program():
     button = Button(2)
     button.hold_time = 1
     last_button_state = button.is_active
+    first = -1
     while True:
-        if button.is_active and not last_button_state:
-            print(69)
+        if button.is_active and first < 0:
+            first = time.time()
+        if button.is_active and not last_button_state and time.time()-first >= 1:
+            print(random.randrange(10))
+        if not button.is_active:
+            first = -1
         last_button_state = button.is_active
 
 
