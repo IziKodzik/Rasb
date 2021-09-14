@@ -31,10 +31,10 @@ def raspberry_program():
     button.hold_time = 1
     last_button_state = button.is_pressed
     while True:
-        button.wait_for_inactive()
+        button.wait_for_active()
         os.system('cd /home/pi/Desktop/work/raspb-controller ; git pull')
         os.system('python3 /home/pi/Desktop/work/raspb-controller/main.py')
-        button.wait_for_active()
+        button.wait_for_inactive()
 
 
 if __name__ == '__main__':
