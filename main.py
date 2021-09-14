@@ -35,7 +35,7 @@ def raspberry_program():
             first = time.time()*1000
         else:
             first = -1
-        if time.time()*1000 - first > 1:
+        if first >= 0 and time.time()*1000 - first > 1:
             print("co jest kurwa?")
             first = -1
 
