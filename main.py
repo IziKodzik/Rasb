@@ -1,6 +1,6 @@
 from datetime import datetime
 import gpiozero as gpio
-from gpiozero import LED
+from gpiozero import LED, Pin, Button
 from time import sleep
 
 
@@ -14,7 +14,10 @@ def note_boot():
 
 def raspberry_program():
     led = LED(14)
+    button = Button(2)
     while True:
+        button.wait_for_active()
+        print('Pressed')
         led.on()
         sleep(1)
         led.off()
