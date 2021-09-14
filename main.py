@@ -29,11 +29,10 @@ def raspberry_program():
     button = Button(2)
     button.hold_time = 1
     last_button_state = button.is_active
-    first = -1
     while True:
-       print(button.is_active)
-
-
+        if not last_button_state and button.is_active:
+            print("EO")
+        last_button_state = button.is_active
 
 if __name__ == '__main__':
     note_boot()
