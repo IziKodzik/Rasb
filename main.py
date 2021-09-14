@@ -2,6 +2,7 @@ import random
 from datetime import datetime
 from threading import Thread
 from gpiozero import LED, Pin, Button, DigitalInputDevice
+import RPi.GPIO as GP
 from time import sleep
 import os
 import time
