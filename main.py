@@ -20,7 +20,7 @@ def blink_led():
     led = LED(14)
     while True:
         led.on()
-        sleep(1)
+        sleep(0.5)
         led.off()
         sleep(0.5)
 
