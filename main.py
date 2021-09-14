@@ -26,7 +26,7 @@ def blink_led():
 def raspberry_program():
     thread = Thread(target=blink_led).start()
 
-    button = Button(2)
+    button = Button(2, pull_up=False)
     button.hold_time = 1
     last_button_state = button.is_active
     while True:
