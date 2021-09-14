@@ -31,12 +31,7 @@ def raspberry_program():
     last_button_state = button.is_active
     first = -1
     while True:
-        if not last_button_state and button.is_active and first < 0:
-            first = time.time()*1000
-            print(first)
-        if not button.is_active:
-            first = -1
-        last_button_state = button.is_active
+       print(button.is_active)
 
 
 
