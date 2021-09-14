@@ -28,7 +28,7 @@ def raspberry_program():
     button.hold_time = 1
     last_button_state = button.is_active
     while True:
-        print(last_button_state)
+        print(button.is_held)
         if button.is_held and last_button_state:
             print(69)
         last_button_state = button.is_active
