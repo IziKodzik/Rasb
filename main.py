@@ -25,8 +25,9 @@ def raspberry_program():
     thread = Thread(target=blink_led).start()
 
     button = Button(2)
+    print(button.is_held())
     while True:
-        if button.is_held():
+        if True:
             print(69)
         sleep(1)
 
