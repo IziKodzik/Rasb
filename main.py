@@ -1,10 +1,12 @@
-from gpiozero import LED
-from time import sleep
+from datetime import datetime
 
-led = LED(17)
+stre = f"boot{datetime.now()}"
+print(stre)
+stre = stre.replace('-', '_')
+stre = stre.replace('.', '_')
+stre = stre.replace(':', '_')
 
-while True:
-    led.on()
-    sleep(1)
-    led.off()
-    sleep(1)
+stre = stre.replace(" ","")
+print(stre)
+f = open(stre, "x")
+f.close()
