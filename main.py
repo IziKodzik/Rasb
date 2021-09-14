@@ -1,5 +1,5 @@
 from datetime import datetime
-import gpiozero as gpio
+from threading import Thread
 from gpiozero import LED, Pin, Button
 from time import sleep
 
@@ -12,16 +12,21 @@ def note_boot():
     f.close()
 
 
-def raspberry_program():
+def blink_led():
     led = LED(14)
-    button = Button(2)
     while True:
-        if button.is_active:
-            print('I am alive.')
         led.on()
         sleep(1)
         led.off()
         sleep(0.25)
+
+
+def raspberry_program():
+    Thread(target=blink_led).start()
+    button = Button(2)
+    while True:
+        print(69)
+        sleep(1)
 
 
 if __name__ == '__main__':
