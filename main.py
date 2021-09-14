@@ -1,7 +1,7 @@
 from datetime import datetime
 
 if __name__ == '__main__':
-    stre = f"boot{datetime.now()}"
+    stre = f"/home/pi/Desktop/boots/boot{datetime.now()}"
     print(stre)
     stre = stre.replace('-', '_')
     stre = stre.replace('.', '_')
