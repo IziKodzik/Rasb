@@ -46,7 +46,7 @@ def raspberry_program():
                                 preexec_fn=os.setsid)
         button.wait_for_inactive()
         print(proc.pid)
-        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+        os.killpg(os.getpgid(proc.pid), signal.SIGSTOP)
         print('terminated')
 
 
