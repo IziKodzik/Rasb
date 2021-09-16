@@ -34,12 +34,14 @@ def raspberry_program():
 
     button = Button(2)
     while True:
+        print('ready')
         button.wait_for_active()
+        print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         sub = Thread(target=run_sub_program())
         sub.start()
         button.wait_for_inactive()
-         
+
 
 if __name__ == '__main__':
     note_boot()
