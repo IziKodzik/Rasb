@@ -39,7 +39,7 @@ def raspberry_program():
         button.wait_for_active()
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        sub = Thread(target=run_sub_program()).start()
+        sub = Thread(target=run_sub_program).start()
         button.wait_for_inactive()
 
 
