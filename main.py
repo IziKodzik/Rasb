@@ -46,6 +46,7 @@ def raspberry_program():
                                 preexec_fn=os.setsid)
         button.wait_for_inactive()
         print(proc.pid)
+        os.system(f'sudo kill {proc.pid + 1}')
         print('terminated')
 
 
