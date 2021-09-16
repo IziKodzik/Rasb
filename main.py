@@ -36,9 +36,9 @@ def blink_led():
 
 
 def raspberry_program():
-    Thread(target=blink_led).start()
     button = Button(2)
     Thread(target=method_name(button)).start()
+    Thread(target=blink_led).start()
 
 
 def method_name(button):
