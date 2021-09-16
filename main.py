@@ -48,11 +48,9 @@ def raspberry_program():
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
-        print(found[0])
-        print(proc.pid)
         button.wait_for_inactive()
         #TODO ask how to avoid +1 coz its dangerous
-        os.system(f'sudo kill {proc.pid + 1}')
+        os.system(f'sudo kill {found[0]}')
 
 
 if __name__ == '__main__':
