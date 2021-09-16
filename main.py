@@ -25,6 +25,10 @@ def blink_led():
         sleep(0.5)
 
 
+def run_sub_program():
+    os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
+
+
 def raspberry_program():
     thread = Thread(target=blink_led).start()
 
@@ -32,9 +36,10 @@ def raspberry_program():
     while True:
         button.wait_for_active()
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
+        sub = Thread(target=run_sub_program())
+        sub.start()
         button.wait_for_inactive()
-
+         
 
 if __name__ == '__main__':
     note_boot()
