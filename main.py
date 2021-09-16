@@ -31,8 +31,8 @@ def raspberry_program():
     button = Button(2)
     while True:
         button.wait_for_active()
-        os.system('cd /home/pi/Desktop/work/raspb-controller ; git pull')
-        os.system('python3 /home/pi/Desktop/work/raspb-controller/main.py')
+        os.system('sudo cd /home/pi/Desktop/work/raspb-controller ; git pull')
+        os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
         button.wait_for_inactive()
 
 
