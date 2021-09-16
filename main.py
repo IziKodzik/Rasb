@@ -29,10 +29,9 @@ def raspberry_program():
     thread = Thread(target=blink_led).start()
 
     button = Button(2)
-    print('raspberry loop starting')
     while True:
         button.wait_for_active()
-        os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
+        os.system('cd /home/pi/Desktop/work/raspb-controller ; git pull')
         os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
         button.wait_for_inactive()
 
