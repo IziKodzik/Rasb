@@ -46,6 +46,7 @@ def raspberry_program():
                                 preexec_fn=os.setsid)
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/mainpy\'').read()
         print(str)
+        button.wait_for_inactive()
         #TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {proc.pid + 1}')
 
