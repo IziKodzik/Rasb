@@ -28,6 +28,7 @@ def blink_led():
 def raspberry_program():
     thread = Thread(target=blink_led).start()
 
+    print('raspberry')
     button = Button(2)
     while True:
         button.wait_for_active()
