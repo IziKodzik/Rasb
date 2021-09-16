@@ -47,7 +47,6 @@ def raspberry_program():
         button.wait_for_inactive()
         print(proc.pid)
         os.system(f'sudo kill {proc.pid + 1}')
-        print('terminated')
 
 
 if __name__ == '__main__':
