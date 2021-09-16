@@ -38,6 +38,10 @@ def blink_led():
 def raspberry_program():
     Thread(target=blink_led).start()
     button = Button(2)
+    Thread(target=method_name(button)).start()
+
+
+def method_name(button):
     while True:
         print('ready')
         button.wait_for_active()
@@ -49,7 +53,7 @@ def raspberry_program():
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         button.wait_for_inactive()
-        #TODO ask how to avoid +1 coz its dangerous
+        # TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {found[0]}')
 
 
