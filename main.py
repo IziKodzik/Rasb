@@ -44,11 +44,8 @@ def raspberry_program():
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
                                 preexec_fn=os.setsid)
-        print(psutil.Process(proc.pid).children)
-        print('^ here')
-        button.wait_for_inactive()
-        print(proc.pid)
-        print('pid')
+        str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/mainpy\'').read()
+        print(str)
         #TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {proc.pid + 1}')
 
