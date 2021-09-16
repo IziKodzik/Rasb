@@ -1,4 +1,5 @@
 import random
+import subprocess
 import threading
 from datetime import datetime
 from threading import Thread
@@ -27,8 +28,9 @@ def blink_led():
 
 
 def run_sub_program():
+    proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True, preexec_fn=os.setsid)
     print(threading.current_thread().ident)
-    os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
+    # os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
 
 
 def raspberry_program():
