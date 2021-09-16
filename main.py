@@ -44,7 +44,7 @@ def raspberry_program():
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
                                 preexec_fn=os.setsid)
-        str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/mainpy\'').read()
+        str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
         print(str)
         button.wait_for_inactive()
         #TODO ask how to avoid +1 coz its dangerous
