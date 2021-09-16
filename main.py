@@ -4,6 +4,8 @@ import subprocess
 import threading
 from datetime import datetime
 from threading import Thread
+
+import psutil as psutil
 from gpiozero import LED, Pin, Button, DigitalInputDevice
 import RPi.GPIO as GP
 from time import sleep
@@ -34,18 +36,18 @@ def blink_led():
 
 def raspberry_program():
     Thread(target=blink_led).start()
-
     button = Button(2)
     while True:
         print('ready')
         button.wait_for_active()
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        # sub = Thread(target=run_sub_program).start()
         proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
                                 preexec_fn=os.setsid)
+        print(psutil.Process(proc.pid).children)
         button.wait_for_inactive()
         print(proc.pid)
+        #TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {proc.pid + 1}')
 
 
