@@ -40,7 +40,8 @@ def raspberry_program():
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         sub = Thread(target=run_sub_program).start()
         info = os.system('ps -aux | grep /home/pi/Desktop/work/raspb-controller/main.py')
-        print(info)
+        print(info.find('root'))
+
         button.wait_for_inactive()
 
 
