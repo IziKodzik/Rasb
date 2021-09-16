@@ -1,4 +1,5 @@
 import random
+import threading
 from datetime import datetime
 from threading import Thread
 from gpiozero import LED, Pin, Button, DigitalInputDevice
@@ -26,6 +27,7 @@ def blink_led():
 
 
 def run_sub_program():
+    print(threading.current_thread().ident)
     os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
 
 
@@ -39,9 +41,6 @@ def raspberry_program():
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         sub = Thread(target=run_sub_program).start()
-        info = os.system('ps -aux | grep /home/pi/Desktop/work/raspb-controller/main.py')
-        print(info + ' to jest przesada')
-
         button.wait_for_inactive()
 
 
