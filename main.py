@@ -47,6 +47,7 @@ def raspberry_program():
         print(psutil.Process(proc.pid).children)
         print('^ here')
         button.wait_for_inactive()
+        print(proc.pid)
         #TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {proc.pid + 1}')
 
