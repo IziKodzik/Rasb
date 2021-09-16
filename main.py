@@ -44,6 +44,7 @@ def raspberry_program():
         proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
                                 preexec_fn=os.setsid)
         button.wait_for_inactive()
+        proc.terminate()
 
 
 if __name__ == '__main__':
