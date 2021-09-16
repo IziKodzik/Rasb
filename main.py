@@ -27,9 +27,7 @@ def blink_led():
         sleep(0.5)
 
 
-def run_sub_program():
-    proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True, preexec_fn=os.setsid)
-    print(threading.current_thread().ident)
+# def run_sub_program():
     # os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
 
 
@@ -42,7 +40,9 @@ def raspberry_program():
         button.wait_for_active()
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        sub = Thread(target=run_sub_program).start()
+        # sub = Thread(target=run_sub_program).start()
+        proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
+                                preexec_fn=os.setsid)
         button.wait_for_inactive()
 
 
