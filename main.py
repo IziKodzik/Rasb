@@ -49,6 +49,7 @@ def raspberry_program():
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         print(found[0])
+        print(proc.pid)
         button.wait_for_inactive()
         #TODO ask how to avoid +1 coz its dangerous
         os.system(f'sudo kill {proc.pid + 1}')
