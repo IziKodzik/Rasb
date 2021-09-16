@@ -46,6 +46,7 @@ def raspberry_program():
                                 preexec_fn=os.setsid)
         button.wait_for_inactive()
         os.killpg(proc.pid, signal.SIGTERM)
+        print('terminated')
 
 if __name__ == '__main__':
     note_boot()
