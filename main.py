@@ -27,7 +27,8 @@ def blink_led():
 
 def run_sub_program():
     os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
-
+    info = os.system('ps -aux | grep /home/pi/Desktop/work/raspb-controller/main.py')
+    print(info)
 
 def raspberry_program():
     Thread(target=blink_led).start()
