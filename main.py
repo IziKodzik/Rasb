@@ -26,8 +26,7 @@ def blink_led():
 
 
 def run_sub_program():
-    while True:
-        w = 1
+    os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
 
 
 def raspberry_program():
