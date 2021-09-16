@@ -30,7 +30,7 @@ def run_sub_program():
 
 
 def raspberry_program():
-    thread = Thread(target=blink_led).start()
+    # thread = Thread(target=blink_led).start()
 
     button = Button(2)
     while True:
