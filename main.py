@@ -47,7 +47,6 @@ def method_name():
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         Thread(target=runProg).start()
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
-        print(str)
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         button.wait_for_inactive()
