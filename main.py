@@ -52,7 +52,7 @@ def method_name():
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         print(found[0])
-        os.kill(found[0], signal.SIGKILL)
+        os.kill(int(found[0]), signal.SIGKILL)
 
 if __name__ == '__main__':
     note_boot()
