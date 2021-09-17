@@ -28,6 +28,7 @@ def blink_led():
         led.toggle()
         sleep(1)
 
+
 # def run_sub_program():
 # os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
 
@@ -52,9 +53,8 @@ def method_name():
         str = str.split("\n")
         print(str)
         found = re.findall(r'\d+', str[1])
-        print(found)
         print(found[0])
-        print(os.popen(f'sudo kill {int(found[1])}'))
+        os.system(f'sudo kill -9 {found[0]}')
 
 
 if __name__ == '__main__':
