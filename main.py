@@ -52,7 +52,8 @@ def method_name():
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         print(found[0])
-        os.kill(int(found[0]), signal.SIGTERM)
+        print(os.popen(f'sudo kill {int(found[0])}'))
+
 
 if __name__ == '__main__':
     note_boot()
@@ -60,4 +61,4 @@ if __name__ == '__main__':
 
 
 def runProg():
-    return os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
+    return os.system('python3 /home/pi/Desktop/work/raspb-controller/main.py')
