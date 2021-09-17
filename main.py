@@ -41,7 +41,7 @@ def raspberry_program():
     print('tak?')
 
 
-def method_name(button):
+def method_name():
     button = Button(2)
 
     while True:
