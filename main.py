@@ -25,11 +25,8 @@ def note_boot():
 def blink_led():
     led = LED(14)
     while True:
-        led.on()
-        sleep(0.5)
-        led.off()
-        sleep(0.5)
-
+        led.toggle()
+        sleep(1)
 
 # def run_sub_program():
 # os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
@@ -51,6 +48,7 @@ def method_name():
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
+        print(str)
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
         button.wait_for_inactive()
