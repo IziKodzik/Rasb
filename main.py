@@ -49,14 +49,14 @@ def method_name():
         print('compiling')
         sleep(3)
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
-                                preexec_fn=os.setsid)
-        str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
-        str = (str[str.find('root'): -1])
-        found = re.findall(r'\d+', str)
+        # proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
+        #                         preexec_fn=os.setsid)
+        # str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
+        # str = (str[str.find('root'): -1])
+        # found = re.findall(r'\d+', str)
         button.wait_for_inactive()
         # TODO ask how to avoid +1 coz its dangerous
-        os.system(f'sudo kill {found[0]}')
+        # os.system(f'sudo kill {found[0]}')
 
 
 if __name__ == '__main__':
