@@ -38,6 +38,7 @@ def blink_led():
 def raspberry_program():
     Thread(target=blink_led).start()
     Thread(target=method_name).start()
+    sleep(3)
     print('tak?')
 
 
