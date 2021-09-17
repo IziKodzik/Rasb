@@ -49,10 +49,12 @@ def method_name():
         # TODO ask how to avoid +1 coz its dangerous
         button.wait_for_inactive()
         str = os.popen('ps -aux | grep \'python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
-        str = (str[str.find('root'): -1])
-        found = re.findall(r'\d+', str)
+        str = str.split("\n")
+        print(str)
+        found = re.findall(r'\d+', str[1])
+        print(found)
         print(found[0])
-        print(os.popen(f'sudo kill {int(found[0])}'))
+        print(os.popen(f'sudo kill {int(found[1])}'))
 
 
 if __name__ == '__main__':
