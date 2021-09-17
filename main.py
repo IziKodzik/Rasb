@@ -44,7 +44,6 @@ def method_name():
         print('ready')
         button.wait_for_active()
         print('compiling')
-        sleep(3)
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
