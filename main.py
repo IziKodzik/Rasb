@@ -45,7 +45,7 @@ def method_name():
         button.wait_for_active()
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
-        os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
+        Thread(target=runProg).start()
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
         print(str)
         str = (str[str.find('root'): -1])
@@ -58,3 +58,7 @@ def method_name():
 if __name__ == '__main__':
     note_boot()
     raspberry_program()
+
+
+def runProg():
+    return os.system('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py')
