@@ -46,12 +46,12 @@ def method_name():
         print('compiling')
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         Thread(target=runProg).start()
+        # TODO ask how to avoid +1 coz its dangerous
+        button.wait_for_inactive()
         str = os.popen('ps -aux | grep \'sudo python3 /home/pi/Desktop/work/raspb-controller/main.py\'').read()
         str = (str[str.find('root'): -1])
         found = re.findall(r'\d+', str)
-        print(found)
-        button.wait_for_inactive()
-        # TODO ask how to avoid +1 coz its dangerous
+        print(found[0])
         os.system(f'sudo kill {found[0]}')
 
 
