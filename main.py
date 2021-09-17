@@ -36,13 +36,14 @@ def blink_led():
 
 
 def raspberry_program():
-    button = Button(2)
     Thread(target=blink_led).start()
-    Thread(target=method_name(button)).start()
+    Thread(target=method_name).start()
     print('tak?')
 
 
 def method_name(button):
+    button = Button(2)
+
     while True:
         print('ready')
         button.wait_for_active()
