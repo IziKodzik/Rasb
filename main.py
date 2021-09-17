@@ -40,7 +40,7 @@ def raspberry_program():
     Thread(target=method_name).start()
 
 
-def method_name(button):
+def method_name():
     button = Button(2)
 
     while True:
