@@ -38,17 +38,16 @@ def blink_led():
 def raspberry_program():
     Thread(target=blink_led).start()
     Thread(target=method_name).start()
-    sleep(3)
-    print('tak?')
 
 
-def method_name():
+def method_name(button):
     button = Button(2)
 
     while True:
         print('ready')
         button.wait_for_active()
         print('compiling')
+        sleep(3)
         os.system('cd /home/pi/Desktop/work/raspb-controller ; sudo git pull')
         proc = subprocess.Popen('sudo python3 /home/pi/Desktop/work/raspb-controller/main.py', shell=True,
                                 preexec_fn=os.setsid)
