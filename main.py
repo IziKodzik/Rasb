@@ -39,7 +39,7 @@ def raspberry_program():
 
 
 def method_name():
-    button = Button(2)
+    button = Button(26)
 
     while True:
         print('ready')
