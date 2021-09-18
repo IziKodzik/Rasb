@@ -23,7 +23,7 @@ def note_boot():
 
 
 def blink_led():
-    led = LED(14)
+    led = LED(21)
     while True:
         led.toggle()
         sleep(1)
